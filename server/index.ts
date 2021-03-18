@@ -52,7 +52,6 @@ const app = express();
 		synchronize: true,
 		logging: true
 	}).then(async connection => {
-		/*
 		let card = new Card();
 		card.sample = "sample";
 		await connection.manager.save(card);
@@ -65,8 +64,8 @@ const app = express();
 		workflow.stages = [stage];
 		await connection.manager.save(workflow);
 
-		//const workflow = await connection.getRepository(Workflow).findOne(4, { relations: ["stages", ""] });
-		//console.log(workflow);*/
+		const workflowObj = await connection.getRepository(Workflow).findOne(4, { relations: ['stages', 'stages.cards'] });
+		console.dir(workflowObj, { depth: null });
 		app.listen(process.env.PORT, () => console.log(`Api service listening at http://localhost:${process.env.PORT} || http://localhost:${process.env.PORT}${server.graphqlPath}`))
 	})
 })()
