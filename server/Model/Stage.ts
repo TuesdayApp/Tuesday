@@ -8,9 +8,10 @@ import { Workflow } from "./Workflow";
 @Entity()
 export class Stage {
 	@PrimaryGeneratedColumn()
+	@Field()
 	id: number;
 
-	@Field(type => [Card])
+	@Field(type => [Card], { nullable: true })
 	@OneToMany(type => Card, card => card.stage)
 	cards: Card[];
 

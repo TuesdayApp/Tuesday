@@ -9,11 +9,13 @@
     "target": "ES2018",
     "lib": [
       "ES2018",
-      "ESNext.AsyncIterable"
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "jsx": "react"
   }
 }
